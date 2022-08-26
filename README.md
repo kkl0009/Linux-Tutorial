@@ -1,4 +1,4 @@
-**This project was created to teach WVU students how to use the Linux command line. The screenshots were taken in an Ubuntu virtual machine. This site is being hosted live at: https://kkl0009.github.io/Linux-Tutorial/tutorial1.html**
+**This project was created to teach WVU students how to use the Linux command line as part of an Honors project. The screenshots were taken in an Ubuntu virtual machine. This site is being hosted live at: https://kkl0009.github.io/Linux-Tutorial/tutorial1.html**
 
 What is this?
 
