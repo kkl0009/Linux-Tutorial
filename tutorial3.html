@@ -1,0 +1,197 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<a href="https://www.wvu.edu">
+  <img class="banner" src="images/1-line logotype124-White.png">
+</a>
+
+<div class="dropdown">
+  <button class="dropbtn">Menu</button>
+  <div class="dropdown-content">
+    <a href="index.html">Home</a>
+    <a href="intro.html">Introduction</a>
+    <a href="tutorial1.html">1: Files and Directories</a>
+    <a href="tutorial2.html">2: File Creation and Manipulation</a>
+    <a href="tutorial3.html">3: Input/Output Redirection</a>
+    <a href="tutorial4.html">4: Wildcards and Manuals</a>
+    <a href="tutorial5.html">5: Permissions and Processes</a>
+    <a href="tutorial6.html">6: Other Useful Commands</a>
+  </div>
+</div>
+
+<head> 
+<title> Linux Tutorial Three </title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Copyright" content="Michael Stonebank, 1995-2003" />
+<!--<link href="unixtut2.css" rel="stylesheet" type="text/css" />
+<link href="unixtut2-print.css" rel="stylesheet" type="text/css" media="print" />-->
+<link href="CSS/tutorial.css" rel="stylesheet" type="text/css" />
+
+</head> 
+ 
+<body>
+<div class="tutorial_body" id="container">
+<h1>Linux Tutorial Three </h1>
+
+<h2 class="subheader">3.1 Redirection &nbsp; </h2>
+<p>Most processes initiated by Linux commands write to the standard output (that 
+  is, they write to the terminal screen), and many take their input from the standard 
+  input (that is, they read it from the keyboard). There is also the standard 
+  error, where processes write their error messages, by default, to the terminal 
+  screen. </p>
+<p> We have already seen one use of the <span class="command">cat</span> command to write the 
+  contents of a file to the screen. </p>
+<p> Now type <span class="command">cat</span> without specifing a file to read </p>
+<p class="cli"> $ cat</p>
+<p>Then type a few words on the keyboard and press the [<b>Return</b>] key.  </p>
+<p> Finally hold the [<b>Ctrl</b>] key down and press [<b>d</b>] (written 
+  as <b>^D</b> for short) to end the input. </p>
+<p align="center"><img class="screenshot" src="P3/ctrl-d.png" alt="Linux Terminal - running cat command with ctrl d" /> </p>
+<p> What has happened? </p>
+<p> If you run the <span class="command">cat</span> command without specifing a file to read, 
+  it reads the standard input (the keyboard), and on receiving the 'end of file' 
+  (<b>^D</b>), copies it to the standard output (the screen). </p>
+<p> In Linux, we can redirect both the input and the output of commands. </p>
+  <p> </p>
+
+<h2 class="subheader">3.2 Redirecting the Output &nbsp; </h2>
+<p>We use the &gt; symbol to redirect the output of a command. For example, to 
+  create a file called <strong>list1</strong> containing a list of fruit, type 
+  &nbsp; </p>
+<p class="cli">$ cat &gt; list1</p>
+<p>Then type in the names of some fruit. Press [<b>Return</b>] after each 
+  one. </p>
+<p class="cli">pear<br>
+  banana<br>
+  apple<br>
+  ^D    {this means press [Ctrl] and [d] to stop}</p>
+<p>What happens is the cat command reads the standard input (the    keyboard) and the &gt; redirects the output, which normally goes to the screen,    into a file called <strong>list1</strong> </p>
+<p> To read the contents of the file, type </p>
+<p class="cli">$ cat list1</p>
+<p align="center"><img class="screenshot" src="P3/file-redirect.png" alt="Linux Terminal - redirecting output to a file" /> </p>
+<h3>Exercise 3a</h3>
+<p>Using the above method, create another file called <strong>list2</strong> containing 
+  the following fruit: orange, plum, mango, grapefruit. Read the contents of <strong>list2</strong></p>
+<p>&nbsp;</p>
+<p align="center"><img class="screenshot" src="P3/exercise1.png" alt="Linux Terminal - answer to exercise 3a"/> </p>
+
+<h3>3.2.1 Appending to a file </h3>
+<p>The form &gt;&gt; appends standard output to a file. So to add more items to 
+  the file <strong>list1</strong>, type </p>
+<p class="cli"> $ cat &gt;&gt; list1</p>
+<p>Then type in the names of more fruit </p>
+<p class="cli"> peach<br />
+  grape<br />
+  orange<br />
+^D (Control D to stop)</p>
+<p>To read the contents of the file, type </p>
+<p class="cli"> $ cat list1</p>
+<p align="center"><img class="screenshot" src="P3/append.png" alt="Linux Terminal - appending output to an existing file" /> </p>
+<p>You should now have two files. One contains six fruit, the other contains four 
+  fruit. </p>
+<p>We will now use the cat command to join (concatenate) <strong>list1</strong> and <strong>list2</strong> into a new file called <strong>biglist</strong>. 
+  Type </p>
+<p class="cli"> $ cat list1 list2 &gt; biglist</p>
+<p>What this is doing is reading the contents of <strong>list1</strong> and <strong>list2</strong> 
+  in turn, then outputing the text to the file <strong>biglist</strong> </p>
+<p> To read the contents of the new file, type </p>
+<p class="cli"> $ cat biglist</p>
+<p align="center"><img class="screenshot" src="P3/biglist.png" alt="Linux Terminal - writing files to new biglist file"/> </p>
+
+<h2 class="subheader">3.3 Redirecting the Input &nbsp; </h2>
+<p>We use the &lt; symbol to redirect the input of a command. </p>
+<p> The command sort alphabetically or numerically sorts a list. 
+  Type </p>
+<p class="cli"> $ sort </p>
+<p> Then type in the names of some animals. Press [Return] after 
+  each one. </p>
+<p class="cli">dog<br />
+  cat<br />
+  bird<br />
+  ape<br />
+  ^D (control d to stop)</p>
+<p> The output will be </p>
+<p class="output"> ape<br />
+  bird <br />
+  cat <br />
+dog </p>
+<p align="center"><img class="screenshot" src="P3/sort.png" alt="Linux Terminal - running sort command" /> </p>
+<p> Using &lt; you can redirect the input to come from a file rather than the 
+  keyboard. For example, to sort the list of fruit, type </p>
+<p class="cli"> $ sort &lt; biglist </p>
+<p> and the sorted list will be output to the screen. </p>
+<p align="center"><img class="screenshot" src="P3/sort-biglist.png" alt="Linux Terminal - reading input from a file" /> </p>
+<p> To output the sorted list to a file, type, </p>
+
+<p class="cli"> $ sort &lt; biglist &gt; slist </p>
+<p> Use cat to read the contents of the file <strong>slist</strong></p>
+<p align="center"><img class="screenshot" src="P3/sort-biglist-output.png" alt="Linux Terminal - reading input file and writing to new file" /> </p>
+
+
+<h2>3.4 Pipes</h2>
+<p>Previously we created a new file called bigfile which included the outputs of list1 and list2.</p>
+<p>We then sorted this bigfile and viewed its output.</p>
+<p>What if we could accomplish all of that with a single command? In the terminal, try typing:</p>
+<p class="cli"> $ cat list1 list2 | sort </p>
+<p align="center"><img class="screenshot" src="P3/pipe.png" alt="Linux Terminal - using a pipe to sort" /> </p>
+<p>The | symbol is a pipe, which can be used to link the output of the command before the pipe to the input for the command after the pipe.</p>
+<p>In this specific situation, the output of the first command is the data stored within both list1 and list2, and this output is used as the input for the sort command.</p>
+<p>Notice how we accomplished the same task as before, but without needing to create <strong>bigfile</strong>, which could be a waste of time/space particularly if the files were all much longer.</p>
+<p>The pipe is a powerful tool that can save time performing several different operations! You are encouraged to experiment with the tool on your own to really learn how to use it effectively.</p>
+<h3>Exercise</h3>
+<p>Using pipes, display all lines of <strong>list1</strong> and <strong>list2</strong> 
+  containing the letter 'p', and sort the result.</p>
+<p align="center"><img class="screenshot" src="P3/pipeex.png" alt="Linux Terminal - an example using pipes" /> </p>
+
+<h2 class="subheader">Summary </h2>
+<table border="1" align="center" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Command</th>
+    <th>Meaning</th>
+  </tr>
+  <tr> 
+    <td class="command"><var>command</var> &gt; <var>file</var></td>
+    <td>redirect standard output to a file</td>
+  </tr>
+  <tr> 
+    <td class="command"><var>command</var> &gt;&gt; <var>file</var></td>
+    <td>append standard output to a file </td>
+  </tr>
+  <tr> 
+    <td class="command"><var>command</var> &lt; <var>file</var></td>
+    <td>redirect standard input from a file</td>
+  </tr>
+  <tr> 
+    <td class="command"><var>command1</var> | <var>command2</var></td>
+    <td>pipe the output of command1 to the input of command2</td>
+  </tr>
+  <tr> 
+    <td class="command">cat <var>file1 file2</var> &gt; <var>file0</var></td>
+    <td>concatenate file1 and file2 to file0</td>
+  </tr>
+  <tr> 
+    <td class="command">sort</td>
+    <td>sort data</td>
+  </tr>
+</table>
+  
+
+<!--<p align="center" class="navbar"><a href="tutorial2.html"><img src="images/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="images/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="tutorial4.html"><img src="images/right.gif" alt="Next" width="37" height="39" border="0" /></a></p>
+-->
+
+<div class="navigation">
+  <a href="tutorial2.html">Previous</a>
+  <a href="index.html">Home</a>
+  <a href="tutorial4.html">Next</a>
+</div>
+
+<!--<p align="center">
+  <iframe src="http://rcm.amazon.com/e/cm?t=unixtutorialf-20&o=1&p=48&l=ur1&category=software&banner=1YTTZDQHSHTZRF996982&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+</p>-->
+<p class="date">Modified from original site made by M.Stonebank@surrey.ac.uk, &copy; 9th October 2000 </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,274 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<a href="https://www.wvu.edu">
+  <img class="banner" src="images/1-line logotype124-White.png">
+</a>
+
+<div class="dropdown">
+  <button class="dropbtn">Menu</button>
+  <div class="dropdown-content">
+    <a href="index.html">Home</a>
+    <a href="intro.html">Introduction</a>
+    <a href="tutorial1.html">1: Files and Directories</a>
+    <a href="tutorial2.html">2: File Creation and Manipulation</a>
+    <a href="tutorial3.html">3: Input/Output Redirection</a>
+    <a href="tutorial4.html">4: Wildcards and Manuals</a>
+    <a href="tutorial5.html">5: Permissions and Processes</a>
+    <a href="tutorial6.html">6: Other Useful Commands</a>
+  </div>
+</div>
+
+<head>
+<title> Linux Tutorial Two </title>
+<!--<link href="unixtut2.css" rel="stylesheet" type="text/css" />
+<link href="unixtut2-print.css" rel="stylesheet" type="text/css" media="print" />-->
+<link href="CSS/tutorial.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Copyright" content="Michael Stonebank, 1995-2003" />
+</head>
+<body>
+<div class="tutorial_body" id="container">
+<h1>Linux Tutorial Two </h1>
+
+<h2 class="subheader">2.1 Creating and Editing Files</h2>
+<h3>touch</h3>
+<p>In working with the Linux terminal, it is likely that you will need to create files.</p> 
+<p>This can be accomplished in multiple 
+  ways (some more of which will be discussed later), but perhaps the most straightforward way is to use the touch command.</p>
+<p> This command is used to update the modification date of a file in a directory, or to create a file with the given name if
+  it does not already exist. </p>
+<p>Below an example of a file created with the touch command is given in the screenshot:</p>
+<p align="center"><img class="screenshot" src="P2/touch.png" alt="Linux Terminal - using the touch command" /> </p>
+<h3>vim</h3>
+<p>Linux supports the use of all sorts of different text editors, but this tutorial will focus on the VIM text editor.</p>
+<p>It was designed as an improvement to the vi (visual) editor (vim = vi improved), and can be used in the terminal.</p> 
+<p>See the screenshot below for an example of its use:</p>
+<p align="center"><img class="screenshot" src="P2/vim.png" alt="Linux Terminal - using the vim command" /> </p>
+<p>Upon running the above command, you will see an interface that looks like the screenshot below:</p>
+<p align="center"><img class="screenshot" src="P2/vim-editor.png" alt="Linux Terminal - the editor for the vim text editor"  /> </p>
+<p>In order to write to the file you have opened in the editor, press the [<strong>i</strong>] key on the keyboard. You should see "INSERT" appear at
+  bottom of the terminal.
+</p>
+<p>When you have finished writing to the file, press the [<strong>esc</strong>] key to exit INSERT mode. Then press the colon [<strong>:</strong>] key, the [<strong>w</strong>] key
+  (for write/save), the [<strong>q</strong>] key (to quit), and exclamation point [<strong>!</strong>], followed by the [<strong>enter</strong>] key to exit the file, saving all the changes.</p>
+  <p>The vim text editor offers several other features, and you are encouraged to explore the features on your own.
+</p>
+<p>Seen below is the creation of a new file called longFile containing the numbers 1-50. This file will be used later in the tutorial.</p>
+<p align="center"><img class="screenshot" src="P2/vim-long.png" alt="Linux Terminal - the creation of longFile" /> </p>
+
+<h2 class="subheader">2.2 Displaying the contents of a file on the screen </h2>
+<h3>clear (clear screen)</h3>
+<p>Before you start the next section, you may like to clear the terminal window 
+  of the previous commands so the output of the following commands can be clearly 
+  understood. </p>
+<p> At the prompt, type </p>
+<p class="cli"> $ clear </p>
+<p> This will clear all text and leave you with the $ prompt at the top of the 
+  window. </p>
+<p align="center"><img class="screenshot" src="P2/clear.png" alt="Linux Terminal - using the clear command" /> </p>
+<p>&nbsp;</p>
+<h3>cat (concatenate)</h3>
+<p>The command cat can be used to display the contents of a file 
+  on the screen. Type: </p>
+<p class="cli"> $ cat newFile </p>
+<p align="center"><img class="screenshot" src="P2/cat.png" alt="Linux Terminal - using the cat command" /> </p>
+<p> As you can see, the message that was written to the file with the vim editor is now being displayed to the terminal.</p>
+<p>&nbsp;</p>
+<h3>less</h3>
+<p>The command less writes the contents of a file onto the screen 
+  a page at a time. Type </p>
+<p class="cli"> $ less longFile </p>
+<p align="center"><img class="screenshot" src="P2/less.png" alt="Linux Terminal - using the less command" /> </p>
+<p align="center"><img class="screenshot" src="P2/less-disp.png" alt="Linux Terminal - display of less command" /> </p>
+<p> Press the [<b>space-bar</b>] if you want to see another page, and type [<b>q</b>] 
+  if you want to quit reading. As you can see, 
+    <span class="command">less</span> is used in preference 
+  to <span class="command">cat</span> for longer files. </p>
+<p>&nbsp;</p>
+<h3>head</h3>
+<p>The <span class="command">head</span> command writes the first ten lines of a file to the screen. </p>
+<p> First clear the screen then type </p>
+<p class="cli"> $ head longFile </p>
+<p> Then type </p>
+<p class="cli"> $ head -5 longFile </p>
+<p align="center"><img class="screenshot" src="P2/head.png" alt="Linux Terminal - using the head command" /> </p>
+<p> What difference did the -5 do to the head command? </p>
+<p>&nbsp;</p>
+<h3>tail</h3>
+<p>The <span class="command">tail</span> command writes the last ten lines of a file to the screen. </p>
+<p> Clear the screen and type </p>
+<p class="cli"> $ tail longFile </p>
+<p> A tag with a number can be used here just as it was with the head command, try it out!</p>
+<p align="center"><img class="screenshot" src="P2/tail.png" alt="Linux Terminal - using the tail command" /> </p>
+<p>&nbsp;</p>
+
+<h2 class="subheader">2.3 Copying Files</h2>
+<h3>cp (copy)</h3>
+<p> <span class="command">cp <i>file1 file2</i></span> is the command which makes a copy of <strong>file1</strong> in the current working directory and calls it <strong>file2</strong> </p>
+<p> What we are going to do now is create a copy of the file newFile which we made with the touch command</p>
+<p> First, <span class="command">cd</span> to your <b>linuxstuff</b> directory.</p>
+<p class="cli"> $ cd ~/linuxstuff</p>
+<p> Then at the Linux prompt, type, </p>
+<p class="cli"> $ cp newFile copyFile </p>
+<p> The above command means copy the file <strong>newFile</strong> to a new file called <strong>copyFile</strong> </p>
+<p align="center"><img class="screenshot" src="P2/cp.png" alt="Linux Terminal - using the cp command" /> </p>
+<!--<h3>Exercise 2a</h3>
+<p>Create a backup of your <strong>science.txt</strong> file by copying it to 
+  a file called <strong>science.bak</strong> </p>-->
+
+<h2 class="subheader">2.4 Moving files</h2>
+<h3>mv (move)</h3>
+<p><span class="command">mv <i>file1 file2</i></span></command> 
+moves (or renames) <strong>file1</strong> 
+  to <strong>file2</strong> </p>
+<p> To move a file from one place to another, use the mv command. 
+  This has the effect of moving rather than copying the file, so you end up with 
+  only one file rather than two. </p>
+<p> It can also be used to rename a file, by moving the file to the same directory, 
+  but giving it a different name. </p>
+<p> We are now going to move the file copyFile to your backups directory. </p>
+<p>First, change directories to your linuxstuff directory (can you remember how?). 
+  Then, inside the <strong>linuxstuff</strong> directory, type</p>
+<p class="cli"> $ mv copyFile backups</p>
+<p> View the contents of the linuxstuff and backups directories to confirm that the command worked.</p>
+<p align="center"><img class="screenshot" src="P2/mv.png" alt="Linux Terminal - using the mv command" /> </p>
+
+<h2 class="subheader">2.5 Removing files and directories </h2>
+<h3>rm (remove), rmdir (remove directory)</h3>
+<p>To delete (remove) a file, use the <span class="command">rm</span> command. As an example, 
+  we are going to delete the original file we created, newFile.</p>
+<p> Inside your <strong>linuxstuff</strong> directory, type</p>
+<p class="cli"> $ ls<br />
+  $ rm newFile<br />
+  $ ls </p>
+<p align="center"><img class="screenshot" src="P2/rm.png" alt="Linux Terminal - using the rm command" /> </p>
+<p> You can use the <span class="command">rmdir</span> command to remove a directory (make sure 
+  it is empty first).</p>
+  <p>Try to remove the <strong>backups</strong> directory. You 
+  will not be able to since Linux will not let you remove a non-empty directory.</p>
+  <p>In order to delete <strong>backups</strong>, navigate into it and delete copyFile, which is located there. Then return to <strong>linuxstuff</strong> and try rmdir again.</p>
+<p align="center"><img class="screenshot" src="P2/rmdir.png" alt="Linux Terminal - using the rmdir command" /> </p>
+<!--<h3>Exercise 2b</h3>
+<p>Create a directory called <strong>tempstuff</strong> using <span class="command">mkdir</span> , then remove it using the <span class="command">rmdir</span> command.</p>-->
+
+<h2 class="subheader">2.6 Searching the contents of a file </h2>
+<h3>Simple searching using less</h3>
+<p>Using <span class="command">less</span>, you can search though a text file for a keyword (pattern). 
+  For example, to search through <strong>longFile</strong> for the word lines containing the number <b>3</b>, 
+  type </p>
+<p class="cli"> $ less longFile </p>
+<p> then, still in <span class="command">less</span>,  type a forward 
+  slash [<b>/</b>] followed by the word (or in this case, number) to search</p>
+<p class="cli"> /3</p>
+<p align="center"><img class="screenshot" src="P2/less-search.png" alt="Linux Terminal - using the less command to search" /> </p>
+<p> As you can see, <span class="command">less</span> finds and highlights the keyword (3). Type [<b>n</b>] 
+  to search for the next occurrence of the number. </p>
+<p>Naturally, this search function works on any words as well, similar to a keystroke you may be familiar with, CTRL+F.</p>
+<p>&nbsp;</p>
+<h3>grep (don't ask why it is called grep)</h3>
+<p><span class="command">grep</span> is one of many standard Linux utilities. It searches files 
+  for specified words or patterns. First clear the screen, then type </p>
+<p class="cli"> $ grep 4 longFile </p>
+<p align="center"><img class="screenshot" src="P2/grep.png" alt="Linux Terminal - using the grep command" /> </p>
+<p> As you can see, <span class="command">grep</span> has printed out each line containg the number 
+  <b>4</b>. </p>
+<p> While grep works just as well on words, keep in mind that it is case sensitive; it distinguishes between 
+  upper and lower case characters. </p>
+<p> To ignore upper/lower case distinctions, use the -i option, i.e. type </p>
+<p class="cli"> $ grep -i word fileName </p>
+<p> To search for a phrase or pattern, you must enclose it in single quotes (the 
+  apostrophe symbol). For example to search for spinning top, type </p>
+<p class="cli"> $ grep -i 'spinning top' fileName </p>
+<p> Some of the other options of grep are: </p>
+<p> <b>-v </b>display those lines that do NOT match <br />
+  <b>-n</b> precede each matching line with the line number <br />
+  <b>-c </b>print only the total count of matched lines <br />
+</p>
+<p> Try some of them and see the different results. Don't forget, you can use 
+  more than one option at a time. See below screenshots for some examples:</p>
+<p align="center"><img class="screenshot" src="P2/grep-c.png" alt="Linux Terminal - using the grep -c command" /> </p>
+<p align="center"><img class="screenshot" src="P2/grep-v-n.png" alt="Linux Terminal - using the grep -v -n command" /> </p>
+<p>&nbsp;</p>
+<h3>wc (word count)</h3>
+<p>A handy little utility is the <span class="command">wc</span></samp> command, short for word count. 
+  To do a word count on <strong>longFile</strong>, type </p>
+<p class="cli"> $ wc -w longFile </p>
+<p> To find out how many lines the file has, type </p>
+<p class="cli"> $ wc -l longFile </p>
+<p align="center"><img class="screenshot" src="P2/wc-w-l.png" alt="Linux Terminal - using the wc command" /> </p>
+
+<h2 class="subheader">Summary </h2>
+<table border="1" align="center" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Command</th>
+    <th>Meaning</th>
+  </tr>
+  <tr> 
+    <td class="command">touch <i>file</i></td>
+    <td>update modification date of/create file</td>
+  </tr>
+  <tr> 
+    <td class="command">vim <i>file</i></td>
+    <td>edit file using vim text editor</td>
+  </tr>
+  <tr> 
+    <td class="command">cat <i>file</i></td>
+    <td>display a file</td>
+  </tr>
+  <tr> 
+    <td class="command">less <i>file</i></td>
+    <td>display a file a page at a time</td>
+  </tr>
+  <tr> 
+    <td class="command">head <i>file</i></td>
+    <td>display the first few lines of a file</td>
+  </tr>
+  <tr> 
+    <td class="command">tail <i>file</i></td>
+    <td>display the last few lines of a file</td>
+  </tr>
+  <tr> 
+    <td class="command">cp <i>file1 file2</i></td>
+    <td>copy file1 and call it file2</td>
+  </tr>
+  <tr> 
+    <td class="command">mv <i>file1 file2</i></td>
+    <td>move or rename file1 to file2</td>
+  </tr>
+  <tr> 
+    <td class="command">rm <i>file</i></td>
+    <td>remove a file</td>
+  </tr>
+  <tr> 
+    <td class="command">rmdir <i>directory</i></td>
+    <td>remove a directory</td>
+  </tr>
+  <tr> 
+    <td class="command">grep <i>'keyword' file</i></td>
+    <td>search a file for keywords</td>
+  </tr>
+  <tr> 
+    <td class="command">wc <i>file</i></td>
+    <td>count number of lines/words/characters in file</td>
+  </tr>
+</table>
+<!--<p align="center"><a href="tutorial1.html"><img src="images/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="images/home.gif" alt="Home" width="81" height="39" border="0" /></a><a href="tutorial3.html"><img src="images/right.gif" alt="Next" width="37" height="39" border="0" /></a></p>
+<p align="center"><script type="text/javascript"><!--
+  amazon_ad_tag = "unixtutorialf-20";  amazon_ad_width = "728";  amazon_ad_height = "90";  amazon_ad_logo = "hide";  amazon_ad_link_target = "new";  amazon_ad_price = "retail";  amazon_color_border = "E9ECF5";  amazon_color_link = "0000FF";  amazon_color_logo = "093697";  amazon_ad_categories = "abcdefg";//--></script>
+<!--<script type="text/javascript" src="http://www.assoc-amazon.com/s/ads.js"></script></p>-->
+
+<div class="navigation">
+  <a href="tutorial1.html">Previous</a>
+  <a href="index.html">Home</a>
+  <a href="tutorial3.html">Next</a>
+</div>
+
+<p class="date">Modified from original site made by M.Stonebank@surrey.ac.uk, &copy; 9th October 2000 </p>
+</div>
+</body>
+</html>

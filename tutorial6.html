@@ -1,0 +1,135 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<a href="https://www.wvu.edu">
+  <img class="banner" src="images/1-line logotype124-White.png">
+</a>
+
+<div class="dropdown">
+  <button class="dropbtn">Menu</button>
+  <div class="dropdown-content">
+    <a href="index.html">Home</a>
+    <a href="intro.html">Introduction</a>
+    <a href="tutorial1.html">1: Files and Directories</a>
+    <a href="tutorial2.html">2: File Creation and Manipulation</a>
+    <a href="tutorial3.html">3: Input/Output Redirection</a>
+    <a href="tutorial4.html">4: Wildcards and Manuals</a>
+    <a href="tutorial5.html">5: Permissions and Processes</a>
+    <a href="tutorial6.html">6: Other Useful Commands</a>
+  </div>
+</div>
+
+<head> 
+<title> Linux Tutorial Six</title> 
+<!--<link href="unixtut2.css" rel="stylesheet" type="text/css" />
+<link href="unixtut2-print.css" rel="stylesheet" type="text/css" media="print" />-->
+<link href="CSS/tutorial.css" rel="stylesheet" type="text/css" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Copyright" content="Michael Stonebank, 1995-2003" />
+</head> 
+ 
+<body>
+<div class="tutorial_body" id="container">
+<h1>Linux Tutorial Six </h1>
+<h2 class="subheader">Other useful Linux commands &nbsp; </h2>
+<!--<h3>quota</h3>
+<p>All students are allocated a certain amount of disk space on the file system 
+  for their personal files, usually about 100Mb. If you go over your quota, you are given 7 days to remove excess files.</p>
+<p> To check your current quota and how much of it you have used, type </p>
+
+<p class="cli"> % quota -v </p>-->
+
+<h3>df</h3>
+<p>The <span class="command">df</span> command reports on the space left on the file system. For example, to 
+  find out how much space is left on the fileserver, type </p>
+
+<p class="cli"> $ df . </p>
+
+<p align="center"><img class="screenshot" src="P6/df.png" alt="Linux Terminal - using the df command" /> </p>
+
+<!--<h3>du</h3>
+<p>The <span class="command">du</span> command outputs the number of kilobyes used by each subdirectory. Useful 
+  if you have gone over quota and you want to find out which directory has the 
+  most files. In your home-directory, type </p>
+
+<p class="cli"> % du -s *</p>
+<p>The <b>-s</b> flag will display only a summary (total size) and the * means all files and directories.  </p>-->
+<h3>gzip</h3>
+<p>This reduces the size of a file, thus freeing valuable disk space. For example, 
+  type </p>
+
+<p class="cli"> $ ls -l longFile </p>
+<p>and note the size of the file using  <span class="command">ls -l</span> . Then to compress longFile, type </p>
+
+<p class="cli"> $ gzip longFile </p>
+<p>This will compress the file and place it in a file called <b>longFile.gz</b> </p>
+<p> To see the change in size, type <span class="command">ls -l</span> again. </p>
+<p align="center"><img class="screenshot" src="P6/gzip.png" alt="Linux Terminal - using the gzip command" /> </p>
+<p> To expand the file, use the <span class="command">gunzip</span> command. </p>
+
+<p class="cli"> $ gunzip longFile.gz </p>
+<p align="center"><img class="screenshot" src="P6/gunzip.png" alt="Linux Terminal - using the gunzip command" /> </p>
+<h3>zcat</h3>
+<p><span class="command">zcat</span> will read gzipped files without needing to uncompress them first.</p>
+<p class="cli">$ zcat  biglist.gz</p>
+<p>If the text scrolls too fast for you, pipe the output though <span class="command">less</span> . </p>
+<p class="cli">% zcat  biglist.gz | less </p>
+<p align="center"><img class="screenshot" src="P6/zcat-less.png" alt="Linux Terminal - using the df command" /> </p>
+<h3>file</h3>
+<p><span class="command">file</span> classifies the named files according to the type of data they contain, 
+  for example ascii (text), pictures, compressed data, etc.. To report on all 
+  files in your home directory, type </p>
+
+<p class="cli"> $ file * </p>
+<p align="center"><img class="screenshot" src="P6/file.png" alt="Linux Terminal - using the file command" /> </p>
+
+<h3>diff</h3>
+<p>This command compares the contents of two files and displays the differences. Suppose you have a file called <b>file1 </b>and you edit some part of it and save it as <b>file2</b>.  To see the differences type</p>
+<p class="cli">$ diff file1 file2 </p>
+<p>Lines beginning with a <b>&lt;</b> denotes file1, while lines beginning with a <b>&gt;</b> denotes file2. </p>
+<p align="center"><img class="screenshot" src="P6/diff.png" alt="Linux Terminal - using the diff command" /> </p>
+<!--<h3>find</h3>
+<p>This searches through the directories for files and directories with a given name, date, size, or any other attribute you care to specify. It is a simple command but with many options - you can read the manual by typing <span class="command">man&nbsp;find</span>. </p>
+<p>To search for all fies with the extention <b>.txt</b>, starting at the current directory (.) and working through all sub-directories, then printing the name of the file to the screen, type</p>
+<p class="cli">% find .  -name &quot;*.txt&quot; -print </p>
+<p>To find files over 1Mb in size, and display the result as a long listing, type</p>
+<p class="cli">% find . -size +1M -ls  </p>-->
+<h3>history</h3>
+<p>The C shell keeps an ordered list of all the commands that you have entered. 
+  Each command is given a number according to the order it was entered.</p>
+
+<p class="cli"> $ history (show command history list)</p>
+<p align="center"><img class="screenshot" src="P6/history.png" alt="Linux Terminal - using the history command" /> </p>
+<p>If you are using the C shell, you can use the exclamation character (<b>!</b>) to 
+  recall commands easily.</p>
+
+<p class="cli">$ !! (recall last command)</p>
+<p class="cli">$ !-3 (recall third most recent command) </p>
+<p class="cli">$ !5 (recall 5th command in list) </p>
+<p class="cli">$ !grep (recall last command starting with grep) </p>
+<p align="center"><img class="screenshot" src="P6/exclamation.png" alt="Linux Terminal - using the ! character" /> </p>
+<p>You can increase the size of the history buffer by typing</p>
+
+<p class="cli">$ set history=100 </p>
+
+<!--<p align="center" class="navbar"><a href="tutorial5.html"><img src="images/left.gif" alt="Previous" width="37" height="39" border="0" /></a> 
+  <a href="index.html"><img src="images/home.gif" alt="Home" width="81" height="39" border="0" /></a> 
+  <a href="tutorial7.html"><img src="images/right.gif" alt="Next" width="37" height="39" border="0" /></a></p>
+
+<p align="center"><script type="text/javascript"><!--
+  amazon_ad_tag = "unixtutorialf-20";  amazon_ad_width = "728";  amazon_ad_height = "90";  amazon_ad_logo = "hide";  amazon_ad_link_target = "new";  amazon_ad_price = "retail";  amazon_color_border = "E9ECF5";  amazon_color_link = "0000FF";  amazon_color_logo = "093697";  amazon_ad_categories = "abcdefg";//--></script>
+<!--<script type="text/javascript" src="http://www.assoc-amazon.com/s/ads.js"></script></p>-->
+
+<div class="navigation">
+  <a href="tutorial5.html">Previous</a>
+  <a href="index.html">Home</a>
+</div>
+
+<p class="date">Modified from original site made by M.Stonebank@surrey.ac.uk, &copy; 9th October 2000 </p>
+</div>
+
+</body>
+</html>

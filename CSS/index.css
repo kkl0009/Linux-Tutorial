@@ -1,0 +1,45 @@
+/*
+    This is the CSS page to use for the index.html file (the landing page)
+*/
+
+body
+{
+    background-color: rgb(34,49,78);
+    color: white;
+}
+
+.logo1
+{
+    height: 150px;
+    width: 400px;
+    margin-bottom: -150px;
+}
+
+.banner
+{
+    
+    display: block;
+    margin-left: 100px;
+    width: 20%;
+}
+
+.title
+{
+    text-align: center;
+}
+
+.hint
+{
+    font-size: 20px;
+}
+
+
+.headers
+{
+    font-size: 20px;
+    background-image: url(../images/WVU-Pattern_Thin_124-Coated.jpg);
+    background-size: 2950px;
+    border: solid;
+    border-color: black;
+    color: black;
+}

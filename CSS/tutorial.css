@@ -1,0 +1,106 @@
+/*
+    This CSS page is used for all tutorials (1-6 as of April 2021)
+*/
+
+body
+{
+    background-color: rgb(34,49,78);
+    color: black;
+}
+
+.banner
+{
+    
+    display: block;
+    margin-left: 100px;
+    width: 20%;
+}
+
+.dropbtn
+{
+    margin: auto;
+    background-color: lightslategray;
+    color: black;
+    padding: 12px;
+    font-size: 20px;
+}
+
+.dropdown 
+{
+    margin-top: 20px;
+    margin-left: 100px;
+    display: inline-block;
+}
+
+.dropdown-content
+{
+    display: none;
+    position: absolute;
+    background-color:#f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a 
+{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropdown-content a:hover {background-color: #ddd;}
+  
+.dropdown:hover .dropdown-content {display: block;}
+  
+.dropdown:hover .dropbtn {background-color: lightgray;}
+
+.header
+{
+    text-align: center;
+}
+
+.tutorial_body
+{
+    background-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 120%;
+}
+
+.subheader
+{
+    margin: 0;
+    padding: 10px;
+    font-size: 180%;
+    text-align: center;
+}
+
+.screenshot
+{
+    width: 1000;
+    height: 1000;
+}
+
+.cli
+{
+    color: white;
+    font-size: 150%;
+    border: solid;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: black;
+    border-color: green;
+}
+
+.navigation
+{
+    text-align: center;
+    border: solid;
+    margin-left: 600px;
+    margin-right: 600px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: lightgray;
+}
